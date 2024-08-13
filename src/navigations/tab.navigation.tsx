@@ -2,6 +2,7 @@ import {createBottomTabNavigator, BottomTabNavigationProp} from '@react-navigati
 import {Mensagem} from "../SCREENS/mensagem"
 import { Perfil } from '../SCREENS/perfil';
 import {AntDesign, Ionicons} from '@expo/vector-icons';
+import { MessageNavigation } from './message.navigation';
 
 type TabParamList = {
     Perfil: undefined

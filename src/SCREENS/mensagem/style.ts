@@ -15,5 +15,11 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         padding: 10,
         color: 'white'
+    },
+    botao:{
+        backgroundColor: 'white',
+        borderRadius: 30,
+        margin: 10,
+        marginTop: 10
     }
 })

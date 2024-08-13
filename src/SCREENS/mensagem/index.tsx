@@ -1,10 +1,11 @@
-import {View, Text, FlatList} from "react-native";
+import {View, Text, FlatList, TouchableOpacity} from "react-native";
 import {styles} from "./style";
 import {useEffect, useState} from "react";
 import {apiMessage} from "../../services/data";
 import {IResponseMessage} from "../../services/data/Message";
 import {useAuth} from "../../hook/auth";
-
+import { AntDesign } from "@expo/vector-icons";
+import { MessageTypes } from "../../navigations/message.navigation";
 
 
 export function Mensagem(){
@@ -17,7 +18,7 @@ export function Mensagem(){
             setMessage(response.data)
         }
         setLoading(false)
-        loadMessage()
+        navigation.addListener("focus", ()=> loadMessage())
     }, [])
 
     interface itemMessage{
@@ -27,6 +28,7 @@ export function Mensagem(){
     const renderItem = (({item}: itemMessage) => {
         return (
             <View style={styles.item}>
+                <Text style={styles.itemText}>Nome: {item.title}</Text>
                 <Text style={styles.itemText}>Título: {item.title}</Text>
                 <Text style={styles.itemText}>Mensagem: {item.message}</Text>
             </View>
@@ -44,6 +46,10 @@ export function Mensagem(){
                     />
                 )
             }
+            <TouchableOpacity style={styles.botao} 
+            onPress={() => navigation.navigate("CadMessage")}>
+                <AntDesign name="pluscircle" size={48} color="white"/>
+            </TouchableOpacity>
         </View>
     )
         
