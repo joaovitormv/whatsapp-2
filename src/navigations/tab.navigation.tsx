@@ -34,7 +34,7 @@ export function TabNavigation(){
                     ),
                 }}
             />
-            <Tab.Screen name='Mensagem' component={Mensagem}
+            <Tab.Screen name='Mensagem' component={MessageNavigation}
                 options={{
                     tabBarIcon: ()=>(
                         <AntDesign name="message1" size={24} color={"white"}/>

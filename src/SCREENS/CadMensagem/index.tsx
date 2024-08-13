@@ -22,8 +22,9 @@ export function CadMessage({navigation}: MessageTypes){
                 Alert.alert("Mensagem cadastrada!")
                 navigation.navigate("Message")
             }catch(error){
-                const err= error as AxiosError
-                const msg = err.response?.data as string
+                const err = error as AxiosError
+                console.log(err)
+                const msg = err.response?.data === 'string' ? err.response.data: 'Erro desconhecido';
                 Alert.alert(msg)
             }
             setLoading(false)
