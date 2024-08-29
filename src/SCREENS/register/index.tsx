@@ -39,8 +39,8 @@ export function Register({navigation}: LoginTypes){
             }catch(error){
                 const err = error as AxiosError
                 console.log(err)
-                const msg = err.response?.data === 'string' ? err.response.data: 'Erro desconhecido';
-                Alert.alert(msg)
+                const msg = (err.response?.data as IError)
+                Alert.alert(msg.errors.reduce((total, atual) => total + atual.message, ''))
             }
             setLoading(false)
         }else{
