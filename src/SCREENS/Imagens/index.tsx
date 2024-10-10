@@ -7,9 +7,9 @@ import {Album} from '../../components/album';
 import {ButtonInterface} from '../../components/button';
 
 export function Imagens(){
-     const [albums, setAlbums] = useState<MediaLibrary.Album[] | null>(null); //???????
+     const [albums, setAlbums] = useState<MediaLibrary.Album[] | null>(null); 
      const [permissionResponse, requestPermission] = MediaLibrary.usePermissions();
-     const [image, setImage] = useState<string | null>(null); //???
+     const [image, setImage] = useState<string | null>(null); 
 
      async function getAlbums(){
         if (permissionResponse && permissionResponse.status !== 'granted' && permissionResponse.accessPrivileges !== 'all') {
